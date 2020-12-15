@@ -2,13 +2,21 @@ package com.imset.foody.controller;
 
 import java.util.NoSuchElementException;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.web.bind.annotation.*;
-
 import com.imset.foody.exception.UserNotFoundException;
 import com.imset.foody.model.User;
 import com.imset.foody.repository.UserRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "/users")
@@ -36,6 +44,7 @@ public class UserController {
 
 	@PostMapping(path = "/add")
 	public @ResponseBody String addNewUser(@RequestBody User user) {
+		// user.setPassword();
 		userRepository.save(user);
 		return "Saved";
 	}
@@ -88,9 +97,4 @@ public class UserController {
 		}
 		
 	}
-	
-	
-
-	
-
 }

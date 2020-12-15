@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 
+
 @Entity // This tells Hibernate to make a table out of this class
 public class User {
 	
@@ -37,7 +38,14 @@ public class User {
 		this.state = state;
 	}
 	
-	
+
+	/*
+	 * public BCryptPasswordEncoder bCryptPasswordEncoder() { return new
+	 * BCryptPasswordEncoder(); }
+	 * 
+	 * public void hashPassword(){
+	 * this.setPassword(bCryptPasswordEncoder.encode(this.getPassword()); }
+	 */
 	
 
 
